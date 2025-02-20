@@ -67,10 +67,16 @@
 연결할 스토리지 정보를 설정합니다. 
 Object Storage는 연결할 컨테이너 이름과 S3 API 자격 증명의 Access Key가 필요합니다. 연결할 컨테이너의 이름은 Amazon S3의 버킷 명명 규칙을 따라야 합니다. S3 API 자격 증명은 Object Storage 콘솔 또는 API를 이용해 발급할 수 있습니다. 자세한 내용은 **Object Storage Amazon S3 호환 API 가이드**의 [버킷 생성](/Storage/Object%20Storage/ko/s3-api-guide/#bucket) 섹션과 [S3 API 자격 증명](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api) 섹션을 참조하세요.
 
+> [참고]
+> Object Storage 컨테이너를 연결하는 공유를 생성하면 Object Storage에 `{컨테이너명}+segments` 컨테이너가 자동으로 생성됩니다. 게이트웨이를 통해 25MB를 초과하는 파일을 저장하면 연결된 컨테이너에 멀티 파트로 업로드되며, 멀티 파트 오브젝트의 세그먼트 오브젝트가 `{컨테이너명}+segments` 컨테이너에 저장됩니다. 
+
+<!-- 개행을 위한 주석 -->
+
 > [주의]
 > 연결할 Object Storage의 컨테이너에 IP ACL을 설정하려면 반드시 Service Gateway에 대한 **read/write 허용**을 추가해야 합니다.
 > Object Storage의 S3 API 자격 증명을 발급하는 사용자는 연결할 컨테이너에 대한 **read/write** 권한이 필요합니다.
 > 스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 컨테이너를 삭제하거나 S3 API 자격 증명을 삭제한다면 사용자 시스템에 문제가 생길 수 있습니다. 삭제하지 않도록 주의해야 합니다.
+> 스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 `{컨테이너명}+segments` 컨테이너의 오브젝트를 삭제하면 저장한 파일에 접근할 수 없습니다. 삭제하지 않도록 주의해야 합니다.
 
 #### NFS 권한 설정
 NFS 프로토콜을 통해 연결할 클라이언트의 권한을 설정합니다. 
