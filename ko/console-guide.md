@@ -160,3 +160,15 @@ sudo mount -t nfs -o vers=3 {마운트 연결 정보} {마운트할 경로}
   예: /mnt/data
 
 
+## POSIX API
+Object Storage 타입 게이트웨이는 POSIX API 일부만 지원합니다.
+
+### 지원하는 API
+```
+read, write, readdir, truncate, fallocate, fsync
+```
+
+> [주의]
+> **rename**, **hardlink**, **symlink**는 사용할 수 없습니다. 동작하지 않거나 Object Storage에 의도치 않은 오브젝트가 생성될 수 있습니다.
+> **rsync**, **vi**와 같이 임시 파일에 저장한 뒤 이름은 변경하는 도구는 이용하지 않는 것을 권장합니다.
+
