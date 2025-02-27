@@ -6,7 +6,7 @@ Storage Gateway allows you to connect NHN Cloud storage from one or more cloud i
 > Storage Gateway is available in the Korea (Pangyo) region as of March 2025 and can be connected to Object Storage among NHN Cloud storage services.
 
 ## Characteristics
-### Sharing
+### Sharable
 You can use NHN Cloud storage by mounting it on one or more instances or on-premises devices.
 The supported protocols are NFS v3, v4 (Linux).
 
@@ -16,13 +16,13 @@ It provides an interface to mount NHN Cloud storage of various interfaces at the
 ### Scalable
 NHN Cloud storage is highly scalable, giving you the flexibility to grow your storage capacity as your data usage grows.
 
-### Stability
+### Stable
 With a redundant configuration, you'll have uninterrupted service in the event of a failure.
 
-### Accessibility
+### Accessible
 You can access NHN Cloud Storage from different environments by connecting a floating IP to the VPC network on the gateway or by setting up a network gateway.
 
-### Security
+### Secure
 NHN Cloud storage utilizes server-side encryption to keep your data secure.
 
 ### Disaster Recovery
@@ -34,7 +34,7 @@ Disaster recovery settings in NHN Cloud Storage help you prepare for unexpected 
 A cluster of instances that provides an interface to connect to NHN Cloud storage.
 The gateway is created in a user project and can be configured for redundancy.
 
-### Sharing
+### Share
 A setting to connect NHN Cloud storage.
 You can set storage information, protocols, access permissions, ACLs, and more to connect.
 

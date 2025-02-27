@@ -14,11 +14,11 @@ Set the size of storage to use as disk cache for the storage gateway. This is av
 
 #### Network
 Select a VPC and subnet that you want to use for the storage gateway.
-A network interface is created on the instance that configures the gateway and the interface is associated with the subnet of the selected VPC. For more information about creating and managing network resources, see the [VPC User Guide](/Network/VPC/ko/overview/).
-Service gateways are used to connect storage outside of your VPC, such as Object Storage, without going over the Internet. For more information about Service Gateway, see the [Service Gateway User Guide](/Network/Service%20Gateway/ko/overview/).
+A network interface is created on the instance that configures the gateway and the interface is associated with the subnet of the selected VPC. For more information about creating and managing network resources, see the [VPC User Guide](/Network/VPC/en/overview/).
+Service gateways are used to connect storage outside of your VPC, such as Object Storage, without going over the Internet. For more information about Service Gateway, see the [Service Gateway User Guide](/Network/Service%20Gateway/en/overview/).
 
 #### Floating IP
-Set whether to use a floating IP. Enabling a floating IP for the gateway allows the gateway to be accessible from the Internet. For more information, see the [Floating IP user guide](/Network/Floating%20IP/ko/overview/).
+Set whether to use a floating IP. Enabling a floating IP for the gateway allows the gateway to be accessible from the Internet. For more information, see the [Floating IP User Guide](/Network/Floating%20IP/en/overview/).
 
 #### Security Groups
 Specify a security group to which the instance of the storage gateway belongs. To mount to NHN Cloud storage through the gateway from outside the selected VPC network, the security group must specify rules for the following ports 
@@ -32,7 +32,7 @@ The remote destination IP can be set as a band in CIDR format.
 > [Caution]
 > Setting the remote destination IP as a wide band, such as `0.0.0.0/0`, can lead to security vulnerabilities. Set it to a minimal range.
 
-For more information, see the [Security Groups user guide](/Network/Security%20Groups/ko/overview/).
+For more information, see the [Security Groups User Guide](/Network/Security%20Groups/en/overview/).
 
 #### Redundancy
 Select whether to enable storage gateway redundancy.
@@ -63,9 +63,9 @@ Set the share name and protocol to use for the path to the mount connection info
 > [Note]
 > As of March 2025, the NFS protocol is available.
 
-#### Connected Storage Information
+#### Storage Information for Connection
 Set the information of storage to connect.
-Object Storage requires the name of the container to connect to and the Access Key from your S3 API credentials. The name of the container to connect to must follow Amazon S3's bucket naming conventions. S3 API credentials can be issued using the Object Storage console or API. For more information, see the [Create Bucket](/Storage/Object%20Storage/ko/s3-api-guide/#bucket) section and the [S3 API Credentials](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api) section of **the Object Storage Amazon S3-compatible API guide**.
+Object Storage requires the name of the container to connect to and the Access Key from your S3 API credentials. The name of the container to connect to must follow Amazon S3's bucket naming conventions. S3 API credentials can be issued using the Object Storage console or API. For more information, see the [Create Bucket](/Storage/Object%20Storage/en/s3-api-guide/#bucket) section and the [S3 API Credentials](/Storage/Object%20Storage/en/s3-api-guide/#s3-api) section of **the Object Storage Amazon S3-compatible API guide**.
 
 > [Note]
 > When you create a share that connects Object Storage containers, the `{container name}+segments` container is automatically created in Object Storage. When you save a file that is larger than 25 MB through the gateway, it is uploaded as a multipart to the connected container, and the segment objects of the multipart object are stored in the `{containername}+segments` container. 
@@ -85,7 +85,7 @@ Set permissions for clients to connect over the NFS protocol.
 | --- | --- |
 | no_root_squash | Map the root of the client to the root of the NFS server. |
 | root_squash | Map the root of the client to nobody or the UID/GID you specify. |
-| all_squash | Maps all users on the client to nobody or the UID/GID you specify. |
+| all_squash | Map all users on the client to nobody or the UID/GID you specify. |
 
 If you do not enter a user ID and group ID, they are set to **root(0** ) or **nobody(65534)**, depending on your Squash options. To map to other users and groups, enter the Linux user ID and group ID. The Linux user ID and group ID can be found with the id command in the Linux **shell**.
 
@@ -94,7 +94,7 @@ $ id
 uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)
 ```
 
-#### Access control (ACL)
+#### Access Control (ACL)
 Enter the IP or IP band of the client that can access NHN Cloud storage through the gateway in CIDR format.
 
 #### Cache Settings
