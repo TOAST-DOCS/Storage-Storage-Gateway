@@ -1,40 +1,40 @@
-## Storage > Storage Gateway > 개요
+## Storage > Storage Gateway > Overview
 
-Storage Gateway는 하나 이상의 클라우드 인스턴스 또는 온프레미스 장비에서 NHN Cloud 스토리지를 연결해 데이터를 효율적으로 저장하고 관리할 수 있는 기능을 제공하는 서비스입니다.
+Storage Gateway allows you to connect NHN Cloud storage from one or more cloud instances or on-premises devices to efficiently store and manage data.
 
-> [참고]
-> Storage Gateway 서비스는 2025년 3월 기준 한국(판교) 리전에서 서비스되며, Object Storage를 연결할 수 있습니다.
+> [Note]
+> Storage Gateway is available in the Korea (Pangyo) region as of March 2025 and can be connected to Object Storage among NHN Cloud storage services.
 
-## 특징
-### 공유
-NHN Cloud 스토리지를 하나 이상의 인스턴스 또는 온프레미스 장비에 마운트하여 사용할 수 있습니다.
-지원하는 프로토콜: NFS v3, v4 (Linux)
+## Characteristics
+### Sharing
+You can use NHN Cloud storage by mounting it on one or more instances or on-premises devices.
+The supported protocols are NFS v3, v4 (Linux).
 
-### 편리성
-다양한 인터페이스의 NHN Cloud 스토리지를 파일 수준으로 마운트할 수 있는 인터페이스를 제공하기 때문에 별도의 파일 시스템 구성이나 API 호출이 필요하지 않습니다.
+### Convenient
+It provides an interface to mount NHN Cloud storage of various interfaces at the file level, so no additional file system configuration or API calls are required.
 
-### 확장성
-NHN Cloud 스토리지의 뛰어난 확장성을 통해 데이터 사용량에 따라 스토리지 용량을 유연하게 증설할 수 있습니다.
+### Scalable
+NHN Cloud storage is highly scalable, giving you the flexibility to grow your storage capacity as your data usage grows.
 
-### 안정성
-이중화 구성을 통해 장애가 발생하더라도 서비스 중단 없이 사용할 수 있습니다.
+### Stability
+With a redundant configuration, you'll have uninterrupted service in the event of a failure.
 
-### 접근성
-게이트웨이의 VPC 네트워크에 Floating IP를 붙이거나 다양한 Network Gateway 설정을 통해 여러 환경에서 NHN Cloud Storage에 접근할 수 있습니다.
+### Accessibility
+You can access NHN Cloud Storage from different environments by connecting a floating IP to the VPC network on the gateway or by setting up a network gateway.
 
-### 보안성
-NHN Cloud 스토리지의 서버 측 암호화 기능을 이용해 데이터를 안전하게 보관할 수 있습니다.
+### Security
+NHN Cloud storage utilizes server-side encryption to keep your data secure.
 
-### 재해 복구
-NHN Cloud 스토리지의 재해 복구 설정을 통해 예기치 않은 재해 상황에 대비할 수 있습니다.
+### Disaster Recovery
+Disaster recovery settings in NHN Cloud Storage help you prepare for unexpected disasters.
 
 
-## 용어
-### 게이트웨이
-NHN Cloud 스토리지에 연결할 인터페이스를 제공하는 인스턴스 클러스터입니다.
-사용자 프로젝트에 생성되며 이중화 구성을 할 수 있습니다.
+## Terms
+### Gateway
+A cluster of instances that provides an interface to connect to NHN Cloud storage.
+The gateway is created in a user project and can be configured for redundancy.
 
-### 공유
-NHN Cloud 스토리지를 연결할 설정입니다.
-연결할 스토리지 정보, 프로토콜, 접근권한, ACL 등을 설정할 수 있습니다.
+### Sharing
+A setting to connect NHN Cloud storage.
+You can set storage information, protocols, access permissions, ACLs, and more to connect.
 
