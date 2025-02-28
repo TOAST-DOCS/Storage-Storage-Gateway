@@ -1,5 +1,5 @@
-## Storage > Storage Gateway > 릴리스 노트
+## Storage > Storage Gateway > Release Notes
 
-### 2025. 03. 04.
-* 신규 서비스 출시
-    * Storage Gateway 서비스 출시, 한국(판교) 리전
+### March 4, 2025
+* Release of a New Service
+    * Storage Gateway is now available. Available in the Korea (Pangyo) region.
