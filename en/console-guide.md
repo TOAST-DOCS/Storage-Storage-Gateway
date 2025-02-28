@@ -1,130 +1,130 @@
-## Storage > Storage Gateway > 콘솔 사용 가이드
-## 게이트웨이(Gateway)
-### 게이트웨이 생성
-새로운 스토리지 게이트웨이를 생성합니다. 게이트웨이는 사용자 프로젝트에 인스턴스를 생성해 구성합니다. 
+## Storage > Storage Gateway > Console User Guide
+## Gateway
+### Create Gateway
+Create a new storage gateway. The gateway is configured by creating an instance in your project. 
 
-#### 게이트웨이 정보
-스토리지 게이트웨이의 이름, 설명, 연결할 스토리지 유형을 설정합니다.
+#### Gateway Information
+Set the name, description, and type of storage to connect.
 
-> [참고]
-> 2025년 3월 현재 Object Storage를 연결할 수 있습니다.
+> [Note]
+> As of March 2025, you can connect Object Storage.
 
-#### 캐시 스토리지
-스토리지 게이트웨이의 디스크 캐시로 사용할 스토리지의 크기를 설정합니다. SSD 타입으로 제공되며 최소 50GB, 최대 2,048GB까지 설정할 수 있습니다.
+#### Cache Storage
+Set the size of storage to use as disk cache for the storage gateway. This is available as an SSD type and can be set to a minimum of 50 GB and a maximum of 2,048 GB.
 
-#### 네트워크
-스토리지 게이트웨이에 사용할 VPC와 서브넷을 선택합니다. 
-게이트웨이를 구성하는 인스턴스에 선택한 VPC의 서브넷과 연결되는 네트워크 인터페이스가 만들어집니다. 네트워크 자원의 생성과 관리에 대한 자세한 내용은 [VPC 사용자 가이드](/Network/VPC/ko/overview/)를 참조하세요.
-서비스 게이트웨이는 Object Storage와 같이 사용자 VPC 외부의 스토리지를 인터넷 경유 없이 연결하기 위해 사용합니다. 서비스 게이트웨이에 대한 자세한 내용은 [Service Gateway 사용 가이드](/Network/Service%20Gateway/ko/overview/)를 참조하세요.
+#### Network
+Select a VPC and subnet that you want to use for the storage gateway.
+A network interface is created on the instance that configures the gateway and the interface is associated with the subnet of the selected VPC. For more information about creating and managing network resources, see the [VPC User Guide](/Network/VPC/en/overview/).
+Service gateways are used to connect storage outside of your VPC, such as Object Storage, without going over the Internet. For more information about Service Gateway, see the [Service Gateway User Guide](/Network/Service%20Gateway/en/overview/).
 
-#### 플로팅 IP
-플로팅 IP 사용 여부를 설정합니다. 게이트웨이에 플로팅 IP를 사용하면 인터넷에서 게이트웨이에 접속할 수 있습니다. 자세한 내용은 [Floating IP 사용 가이드](/Network/Floating%20IP/ko/overview/)를 참조하세요.
+#### Floating IP
+Set whether to use a floating IP. Enabling a floating IP for the gateway allows the gateway to be accessible from the Internet. For more information, see the [Floating IP User Guide](/Network/Floating%20IP/en/overview/).
 
-#### 보안 그룹
-스토리지 게이트웨이의 인스턴스가 속할 보안 그룹을 지정합니다. 선택한 VPC 네트워크 외부에서 게이트웨이를 통해 NHN Cloud 스토리지에 마운트하려면 보안 그룹에 다음과 같은 포트에 대한 규칙이 명시되어 있어야 합니다. 
+#### Security Groups
+Specify a security group to which the instance of the storage gateway belongs. To mount to NHN Cloud storage through the gateway from outside the selected VPC network, the security group must specify rules for the following ports 
 
-| 방향 | IP 프로토콜 | 포트 범위 | Ether | 원격 |
+| Direction | IP protocol | Port range | Ether | Remote |
 | --- | --- | --- | --- | --- |
-| 수신 | TCP | 1-65536 | IPv4 | 원격지 IP |
+| Inbound | TCP | 1-65536 | IPv4 | Remote destination IP |
 
-원격지 IP는 CIDR 형식의 대역으로 설정할 수 있습니다. 
+The remote destination IP can be set as a band in CIDR format. 
 
-> [주의]
-> 원격지 IP를 `0.0.0.0/0`과 같이 넓은 대역으로 설정하면 보안에 취약해질 수 있습니다. 최소한의 범위로 설정해야 합니다.
+> [Caution]
+> Setting the remote destination IP as a wide band, such as `0.0.0.0/0`, can lead to security vulnerabilities. Set it to a minimal range.
 
-자세한 내용은 [Security Groups 사용 가이드](/Network/Security%20Groups/ko/overview/)를 참조하세요.
+For more information, see the [Security Groups User Guide](/Network/Security%20Groups/en/overview/).
 
-#### 이중화
-스토리지 게이트웨이 이중화 여부를 선택합니다. 
-이중화를 사용하면 2개의 인스턴스를 생성해 클러스터를 구성합니다. 클러스터를 구성하는 하나의 인스턴스에 장애가 발생하더라도 다른 인스턴스를 통해 중단 없이 게이트웨이를 사용할 수 있습니다. 장애가 발생해 서비스에서 제외된 인스턴스는 오토힐링 기능을 통해 자동으로 복구되어 클러스터에 투입됩니다.
+#### Redundancy
+Select whether to enable storage gateway redundancy.
+With redundancy enabled, you create two instances to form a cluster. If one instance in the cluster fails, you can use the gateway without interruption through the other instance. The instance that fails and is excluded from the service is automatically recovered by the auto-healing feature and put back into the cluster.
 
-### 게이트웨이 시작
-중지된 스토리지 게이트웨이를 시작합니다.
+### Start Gateway
+Start a stopped storage gateway.
 
-### 게이트웨이 중지 
-스토리지 게이트웨이를 중지합니다. 게이트웨이를 중지하면 클러스터를 구성하는 인스턴스가 중지되며 스토리지와 연결할 수 없습니다.
+### Stop Gateway 
+Stop the storage gateway. When you stop the gateway, the instances that make up the cluster stop and can't connect to storage.
 
-> [주의]
-> 스토리지 게이트웨이를 중지하기 전에 NHN Cloud 스토리지를 연결해 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 게이트웨이를 중지하면 사용자 시스템에 문제가 생길 수 있습니다. 
+> [Caution]
+> Before stopping the storage gateway, you must unmount the gateway from the system you are using by connecting the NHN Cloud storage. Stopping the gateway while it is mounted may cause problems on your system. 
 
-### 게이트웨이 삭제
-스토리지 게이트웨이를 삭제합니다. 클러스터를 구성하는 모든 인스턴스와 자원이 삭제됩니다. 게이트웨이에 연결되어 있던 NHN Cloud 스토리지는 삭제되지 않습니다. 
+### Delete Gateway
+Delete the storage gateway. All instances and resources that make up the cluster are deleted. NHN Cloud storage that was connected to the gateway is not deleted. 
 
-> [참고]
-> 게이트웨이를 삭제하려면 먼저 게이트웨이에 생성한 모든 공유를 삭제해야 합니다.
+> [Note]
+> To delete a gateway, you must first delete all shares you created on the gateway.
 
-## 공유(Share)
-### 공유 생성
-공유를 생성합니다. 공유는 NHN Cloud 스토리지를 연결할 설정입니다. 공유를 생성하면 마운트 연결 정보를 얻을 수 있고, 이 연결 정보를 이용해 사용자 시스템에 NHN Cloud 스토리지를 마운트해 사용할 수 있습니다.
+## Share
+### Create Share
+Create a share. A share is a setup to connect NHN Cloud storage to. When you create a share, you get the mount connection information, which you can use to mount and use NHN Cloud storage on your system.
 
-#### 공유 정보
-마운트 연결 정보의 경로에 사용할 공유 이름과 프로토콜을 설정합니다.
+#### Share Information
+Set the share name and protocol to use for the path to the mount connection information.
 
-> [참고]
-> 2025년 3월 현재 NFS 프로토콜을 사용할 수 있습니다.
+> [Note]
+> As of March 2025, the NFS protocol is available.
 
-#### 연결 스토리지 정보
-연결할 스토리지 정보를 설정합니다. 
-Object Storage는 연결할 컨테이너 이름과 S3 API 자격 증명의 Access Key가 필요합니다. 연결할 컨테이너의 이름은 Amazon S3의 버킷 명명 규칙을 따라야 합니다. S3 API 자격 증명은 Object Storage 콘솔 또는 API를 이용해 발급할 수 있습니다. 자세한 내용은 **Object Storage Amazon S3 호환 API 가이드**의 [버킷 생성](/Storage/Object%20Storage/ko/s3-api-guide/#bucket) 섹션과 [S3 API 자격 증명](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api) 섹션을 참조하세요.
+#### Storage Information for Connection
+Set the information of storage to connect.
+Object Storage requires the name of the container to connect to and the Access Key from your S3 API credentials. The name of the container to connect to must follow Amazon S3's bucket naming conventions. S3 API credentials can be issued using the Object Storage console or API. For more information, see the [Create Bucket](/Storage/Object%20Storage/en/s3-api-guide/#bucket) section and the [S3 API Credentials](/Storage/Object%20Storage/en/s3-api-guide/#s3-api) section of **the Object Storage Amazon S3-compatible API guide**.
 
-> [참고]
-> Object Storage 컨테이너를 연결하는 공유를 생성하면 Object Storage에 `{컨테이너명}+segments` 컨테이너가 자동으로 생성됩니다. 게이트웨이를 통해 25MB를 초과하는 파일을 저장하면 연결된 컨테이너에 멀티 파트로 업로드되며, 멀티 파트 오브젝트의 세그먼트 오브젝트가 `{컨테이너명}+segments` 컨테이너에 저장됩니다. 
+> [Note]
+> When you create a share that connects Object Storage containers, the `{container name}+segments` container is automatically created in Object Storage. When you save a file that is larger than 25 MB through the gateway, it is uploaded as a multipart to the connected container, and the segment objects of the multipart object are stored in the `{containername}+segments` container. 
 
 <!-- 개행을 위한 주석 -->
 
-> [주의]
-> 연결할 Object Storage의 컨테이너에 IP ACL을 설정하려면 반드시 Service Gateway에 대한 **read/write 허용**을 추가해야 합니다.
-> Object Storage의 S3 API 자격 증명을 발급하는 사용자는 연결할 컨테이너에 대한 **read/write** 권한이 필요합니다.
-> 스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 컨테이너를 삭제하거나 S3 API 자격 증명을 삭제한다면 사용자 시스템에 문제가 생길 수 있습니다. 삭제하지 않도록 주의해야 합니다.
-> 스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 `{컨테이너명}+segments` 컨테이너의 오브젝트를 삭제하면 저장한 파일에 접근할 수 없습니다. 삭제하지 않도록 주의해야 합니다.
+> [Caution]
+> To set IP ACLs on containers in Object Storage that you want to connect to, you must add **read/write permissions** for Service Gateway.
+> The user who issues Object Storage's S3 API credentials needs **read/write** permissions on the container to connect to.
+> If you delete the container or delete the S3 API credentials while connecting to and using a container in Object Storage through a storage gateway, it can cause problems on your system. You should be careful not to delete them.
+> If you delete objects in the `{container name}+segments` container while connecting to and using a container in Object Storage through a storage gateway, you will not be able to access the files you have stored. Be careful not to delete them.
 
-#### NFS 권한 설정
-NFS 프로토콜을 통해 연결할 클라이언트의 권한을 설정합니다. 
+#### NFS Permissions Settings
+Set permissions for clients to connect over the NFS protocol. 
 
-| Squash 옵션 | 설명 |
+| Squash Option | Description |
 | --- | --- |
-| no_root_squash | 클라이언트의 root를 NFS 서버의 root에 매핑합니다. |
-| root_squash | 클라이언트의 root를 nobody 또는 지정한 UID/GID에 매핑합니다. |
-| all_squash | 클라이언트의 모든 사용자를 nobody 또는 지정한 UID/GID에 매핑합니다. |
+| no_root_squash | Map the root of the client to the root of the NFS server. |
+| root_squash | Map the root of the client to nobody or the UID/GID you specify. |
+| all_squash | Map all users on the client to nobody or the UID/GID you specify. |
 
-사용자 ID와 그룹 ID를 입력하지 않으면 Squash 옵션에 따라 **root(0)** 또는 **nobody(65534)**로 설정됩니다. 그 외의 사용자와 그룹에 매핑하려면 리눅스 사용자 ID와 그룹 ID는 입력합니다. 리눅스 사용자 ID와 그룹 ID는 리눅스 셸에서 **id** 명령으로 확인할 수 있습니다.
+If you do not enter a user ID and group ID, they are set to **root(0** ) or **nobody(65534)**, depending on your Squash options. To map to other users and groups, enter the Linux user ID and group ID. The Linux user ID and group ID can be found with the id command in the Linux **shell**.
 
 ```
 $ id
 uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)
 ```
 
-#### 접근 제어(ACL)
-게이트웨이를 통해 NHN Cloud 스토리지에 접근할 수 있는 클라이언트의 IP 또는 IP 대역을 CIDR 형식으로 입력합니다.
+#### Access Control (ACL)
+Enter the IP or IP band of the client that can access NHN Cloud storage through the gateway in CIDR format.
 
-#### 캐시 설정
-메모리 캐시 유효 시간을 설정합니다. 설정된 유효 시간 동안 캐시가 유지됩니다.
+#### Cache Settings
+Set the memory cache validity time. The cache is retained for the set validity time.
 
-### 공유 삭제
-공유를 삭제합니다. 
+### Delete Share
+Delete a share. 
 
-> [주의]
-> 공유를 삭제하기 전에 NHN Cloud 스토리지를 마운트해 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 공유를 삭제하면 사용자 시스템에 문제가 생길 수 있습니다. 
+> [Caution]
+> Before deleting a share, you must mount the NHN Cloud storage and unmount it from your system. Deleting a share while it is mounted may cause problems on your system. 
 
-### 캐시 즉시 비우기
-디스크 캐시 영역에 저장된 데이터를 즉시 삭제합니다. 
+### Immediately Empty Cache
+Immediately deletes data stored in the disk cache area. 
 
-### Access Key 변경
-Object Storage 타입 게이트웨이의 공유에 설정한 Access Key를 변경합니다. 
+### Change Access Key
+Change the Access Key that you set when creating the share for the Object Storage type gateway.
 
-> [주의]
-> Access Key를 변경하기 전에 NHN Cloud 스토리지를 마운트해 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 Access Key를 변경하면 사용자 시스템에 문제가 생길 수 있습니다. 
+> [Caution]
+> Before you change the access key, you must mount your NHN Cloud storage and unmount it from your system. Changing the Access Key while mounted may cause problems on your system. 
 
-### NFS 권한 변경
-NFS 프로토콜을 통해 연결할 클라이언트의 권한을 변경합니다.
+### Change NFS Permissions
+Change the permissions of clients to connect over the NFS protocol.
 
-### 접근 제어(ACL) 변경
-게이트웨이를 통해 NHN Cloud 스토리지에 접근할 수 있는 클라이언트의 IP 또는 IP 대역을 변경합니다.
+### Change Access Control (ACL)
+Change the IP or IP band of clients that can access NHN Cloud storage through the gateway.
 
-## NFS 연결
-NFS를 사용하려면 다음과 같이 NFS 패키지를 설치하고 rpcbind 서비스를 실행해야 합니다.
+## Connect NFS
+To use NFS, you must install the NFS package and run the rpcbind service, as follows
 
-### NFS 패키지 설치
+### Install NFS Package
 * **Debian, Ubuntu**
 ```
 sudo apt-get install nfs-common rpcbind
@@ -135,40 +135,40 @@ sudo apt-get install nfs-common rpcbind
 sudo yum install nfs-utils rpcbind
 ```
 
-### rpcbind 서비스 실행
+### Run rpcbind Service
 ```
 sudo service rpcbind start
 ```
 
-### 공유 마운트
-생성한 공유의 마운트 연결 정보와 mount 명령을 이용해 다음과 같이 NHN Cloud 스토리지를 사용자 시스템에 마운트할 수 있습니다.
+### Mount Share
+Using the mount connection information of the created share and the mount command, you can mount NHN Cloud storage to your system as follows.
 
 ```
-sudo mount -t nfs {마운트 연결 정보} {마운트할 경로}
+sudo mount -t nfs {Mount share information} {Path to mount}
 ```
 
-NFS v3를 사용하려면 다음과 같이 버전 옵션을 추가해야 합니다.
+To use NFS v3, you must add the version option as follows
 
 ```
-sudo mount -t nfs -o vers=3 {마운트 연결 정보} {마운트할 경로}
+sudo mount -t nfs -o vers=3 {Mount share information} {Path to mount}
 ```
 
-* 마운트 연결 정보는 공유의 상세 정보에서 확인할 수 있습니다. 
-  예: 192.168.0.11:/data
+* Mount share information can be found in the details of the share.
+Example: 192.168.0.11:/data
 
-* 마운트할 경로
-  예: /mnt/data
+* Path to mount
+Example: /mnt/data
 
 
 ## POSIX API
-Object Storage 타입 게이트웨이는 POSIX API 일부만 지원합니다.
+Gateways of type Object Storage support only a subset of the POSIX APIs.
 
-### 지원하는 API
+### Supported APIs
 ```
 read, write, readdir, truncate, fallocate, fsync
 ```
 
-> [주의]
-> **rename**, **hardlink**, **symlink**는 사용할 수 없습니다. 동작하지 않거나 Object Storage에 의도치 않은 오브젝트가 생성될 수 있습니다.
-> **rsync**, **vi**와 같은 임시 파일에 저장한 뒤 이름을 변경하는 도구는 사용하지 않는 것을 권장합니다.
+> [Caution]
+> Do not use rename, hardlink, or symlink; they may not work or may create unintended objects in Object Storage.
+> We do not recommend using tools that save to temporary files and then rename them, such as rsync and vi.
 
