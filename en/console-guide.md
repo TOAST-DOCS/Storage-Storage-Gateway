@@ -25,7 +25,9 @@ Specify a security group to which the instance of the storage gateway belongs. T
 
 | Direction | IP protocol | Port range | Ether | Remote |
 | --- | --- | --- | --- | --- |
-| Inbound | TCP | 1-65536 | IPv4 | Remote destination IP |
+| Inbound | TCP | 111 | IPv4 | Remote destination IP |
+| Inbound | TCP | 2049 | IPv4 | Remote destination IP |
+| Inbound | TCP | 57861-57869 | IPv4 | Remote destination IP |
 
 The remote destination IP can be set as a band in CIDR format. 
 
