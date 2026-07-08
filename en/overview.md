@@ -1,40 +1,52 @@
-## Storage > Storage Gateway > Overview
+<a id="storage-storage-gateway-overview"></a>
+## Storage > Storage Gateway > Overview { #storage-storage-gateway-overview }
 
 Storage Gateway allows you to connect NHN Cloud storage from one or more cloud instances or on-premises devices to efficiently store and manage data.
 
 > [Note]
 > Storage Gateway is available in the Korea (Pangyo) region as of March 2025 and can be connected to Object Storage among NHN Cloud storage services.
 
-## Characteristics
-### Sharable
+<a id="characteristics"></a>
+## Characteristics { #characteristics }
+<a id="sharable"></a>
+### Sharable { #sharable }
 You can use NHN Cloud storage by mounting it on one or more instances or on-premises devices.
 The supported protocols are NFS v3, v4 (Linux).
 
-### Convenient
+<a id="convenient"></a>
+### Convenient { #convenient }
 It provides an interface to mount NHN Cloud storage of various interfaces at the file level, so no additional file system configuration or API calls are required.
 
-### Scalable
+<a id="scalable"></a>
+### Scalable { #scalable }
 NHN Cloud storage is highly scalable, giving you the flexibility to grow your storage capacity as your data usage grows.
 
-### Stable
+<a id="stable"></a>
+### Stable { #stable }
 With a redundant configuration, you'll have uninterrupted service in the event of a failure.
 
-### Accessible
+<a id="accessible"></a>
+### Accessible { #accessible }
 You can access NHN Cloud Storage from different environments by connecting a floating IP to the VPC network on the gateway or by setting up a network gateway.
 
-### Secure
+<a id="secure"></a>
+### Secure { #secure }
 NHN Cloud storage utilizes server-side encryption to keep your data secure.
 
-### Disaster Recovery
+<a id="disaster-recovery"></a>
+### Disaster Recovery { #disaster-recovery }
 Disaster recovery settings in NHN Cloud Storage help you prepare for unexpected disasters.
 
 
-## Terms
-### Gateway
+<a id="terms"></a>
+## Terms { #terms }
+<a id="gateway"></a>
+### Gateway { #gateway }
 A cluster of instances that provides an interface to connect to NHN Cloud storage.
 The gateway is created in a user project and can be configured for redundancy.
 
-### Share
+<a id="share"></a>
+### Share { #share }
 A setting to connect NHN Cloud storage.
 You can set storage information, protocols, access permissions, ACLs, and more to connect.
 
