@@ -1,7 +1,8 @@
-<!-- pre-align:aligned sig=df549469ae0a -->
-
 <a id="storage-storage-gateway-console-user-guide"></a>
 ## Storage > Storage Gateway > 콘솔 사용 가이드 { #storage-storage-gateway-console-user-guide }
+
+이 문서는 NHN Cloud 콘솔에서 Storage Gateway의 게이트웨이와 공유를 관리하고 연결하는 방법을 설명합니다.
+
 <a id="gateway"></a>
 ## 게이트웨이(Gateway) { #gateway }
 <a id="create-gateway"></a>
@@ -12,8 +13,8 @@
 #### 게이트웨이 정보
 스토리지 게이트웨이의 이름, 설명, 연결할 스토리지 유형을 설정합니다.
 
-> [참고]
-> 2025년 3월 현재 Object Storage를 연결할 수 있습니다.
+!!! tip "참고"
+    2025년 3월 현재 Object Storage를 연결할 수 있습니다.
 
 <a id="create-gateway-cache-storage"></a>
 #### 캐시 스토리지
@@ -41,8 +42,8 @@
 
 원격지 IP는 CIDR 형식의 대역으로 설정할 수 있습니다. 
 
-> [주의]
-> 원격지 IP를 `0.0.0.0/0`과 같이 넓은 대역으로 설정하면 보안에 취약해질 수 있습니다. 최소한의 범위로 설정해 주세요.
+!!! tip "주의"
+    원격지 IP를 `0.0.0.0/0`과 같이 넓은 대역으로 설정하면 보안에 취약해질 수 있습니다. 최소한의 범위로 설정해 주세요.
 
 자세한 내용은 [Security Groups 사용 가이드](/Network/Security%20Groups/ko/overview/)를 참조하세요.
 
@@ -59,15 +60,15 @@
 ### 게이트웨이 중지 { #stop-gateway }
 스토리지 게이트웨이를 중지합니다. 게이트웨이를 중지하면 클러스터를 구성하는 인스턴스가 중지되며 스토리지와 연결할 수 없습니다.
 
-> [주의]
-> 스토리지 게이트웨이를 중지하기 전, NHN Cloud 스토리지를 연결하여 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 게이트웨이를 중지하면 사용자 시스템에 문제가 발생할 수 있습니다. 
+!!! tip "주의"
+    스토리지 게이트웨이를 중지하기 전, NHN Cloud 스토리지를 연결하여 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 게이트웨이를 중지하면 사용자 시스템에 문제가 발생할 수 있습니다.
 
 <a id="delete-gateway"></a>
 ### 게이트웨이 삭제 { #delete-gateway }
 스토리지 게이트웨이를 삭제합니다. 클러스터를 구성하는 모든 인스턴스와 자원이 삭제됩니다. 게이트웨이에 연결되어 있던 NHN Cloud 스토리지는 삭제되지 않습니다. 
 
-> [참고]
-> 게이트웨이를 삭제하려면 먼저 게이트웨이에 생성한 모든 공유를 삭제해야 합니다.
+!!! tip "참고"
+    게이트웨이를 삭제하려면 먼저 게이트웨이에 생성한 모든 공유를 삭제해야 합니다.
 
 <a id="share"></a>
 ## 공유(Share) { #share }
@@ -79,24 +80,24 @@
 #### 공유 정보
 마운트 연결 정보의 경로에 사용할 공유 이름과 프로토콜을 설정합니다.
 
-> [참고]
-> 2025년 3월 현재 NFS 프로토콜을 사용할 수 있습니다.
+!!! tip "참고"
+    2025년 3월 현재 NFS 프로토콜을 사용할 수 있습니다.
 
 <a id="create-share-storage-information-for-connection"></a>
 #### 연결 스토리지 정보
 연결할 스토리지 정보를 설정합니다. 
 Object Storage는 연결할 컨테이너 이름과 S3 API 자격 증명의 Access Key가 필요합니다. 연결할 컨테이너의 이름은 Amazon S3의 버킷 명명 규칙을 따라야 합니다. S3 API 자격 증명은 Object Storage 콘솔 또는 API를 이용해 발급할 수 있습니다. 자세한 내용은 **Object Storage Amazon S3 호환 API 가이드**의 [버킷 생성](/Storage/Object%20Storage/ko/s3-api-guide/#bucket) 섹션과 [S3 API 자격 증명](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api) 섹션을 참조하세요.
 
-> [참고]
-> Object Storage 컨테이너를 연결하는 공유를 생성하면 Object Storage에 `{컨테이너명}+segments` 컨테이너가 자동으로 생성됩니다. 게이트웨이를 통해 25MB를 초과하는 파일을 저장하면 연결된 컨테이너에 멀티 파트로 업로드되며, 멀티 파트 오브젝트의 세그먼트 오브젝트가 `{컨테이너명}+segments` 컨테이너에 저장됩니다. 
+!!! tip "참고"
+    Object Storage 컨테이너를 연결하는 공유를 생성하면 Object Storage에 `{컨테이너명}+segments` 컨테이너가 자동으로 생성됩니다. 게이트웨이를 통해 25MB를 초과하는 파일을 저장하면 연결된 컨테이너에 멀티 파트로 업로드되며, 멀티 파트 오브젝트의 세그먼트 오브젝트가 `{컨테이너명}+segments` 컨테이너에 저장됩니다.
 
 <!-- 개행을 위한 주석 -->
 
-> [주의]
-> 연결할 Object Storage의 컨테이너에 IP ACL을 설정하려면 반드시 Service Gateway에 대한 **read/write 허용**을 추가해야 합니다.
-> Object Storage의 S3 API 자격 증명을 발급하는 사용자는 연결할 컨테이너에 대한 **read/write** 권한이 필요합니다.
-> 스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 컨테이너를 삭제하거나 S3 API 자격 증명을 삭제한다면 사용자 시스템에 문제가 생길 수 있습니다. 삭제하지 않도록 주의해야 합니다.
-> 스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 `{컨테이너명}+segments` 컨테이너의 오브젝트를 삭제하면 저장한 파일에 접근할 수 없습니다. 삭제하지 않도록 주의해야 합니다.
+!!! tip "주의"
+    연결할 Object Storage의 컨테이너에 IP ACL을 설정하려면 반드시 Service Gateway에 대한 **read/write 허용**을 추가해야 합니다.
+    Object Storage의 S3 API 자격 증명을 발급하는 사용자는 연결할 컨테이너에 대한 **read/write** 권한이 필요합니다.
+    스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 컨테이너를 삭제하거나 S3 API 자격 증명을 삭제한다면 사용자 시스템에 문제가 생길 수 있습니다. 삭제하지 않도록 주의해야 합니다.
+    스토리지 게이트웨이를 통해 Object Storage의 컨테이너를 연결해 사용하는 동안 `{컨테이너명}+segments` 컨테이너의 오브젝트를 삭제하면 저장한 파일에 접근할 수 없습니다. 삭제하지 않도록 주의해야 합니다.
 
 <a id="create-share-nfs-permissions-settings"></a>
 #### NFS 권한 설정
@@ -127,8 +128,8 @@ uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)
 ### 공유 삭제 { #delete-share }
 공유를 삭제합니다. 
 
-> [주의]
-> 공유를 삭제하기 전에 NHN Cloud 스토리지를 마운트하여 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 공유를 삭제하면 사용자 시스템에 문제가 생길 수 있습니다. 
+!!! tip "주의"
+    공유를 삭제하기 전에 NHN Cloud 스토리지를 마운트하여 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 공유를 삭제하면 사용자 시스템에 문제가 생길 수 있습니다.
 
 <a id="immediately-empty-cache"></a>
 ### 캐시 즉시 비우기 { #immediately-empty-cache }
@@ -138,8 +139,8 @@ uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)
 ### Access Key 변경 { #change-access-key }
 Object Storage 유형 게이트웨이의 공유 생성 시 설정한 Access Key를 변경합니다.
 
-> [주의]
-> Access Key를 변경하기 전에 NHN Cloud 스토리지를 마운트하여 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 Access Key를 변경하면 사용자 시스템에 문제가 생길 수 있습니다. 
+!!! tip "주의"
+    Access Key를 변경하기 전에 NHN Cloud 스토리지를 마운트하여 사용 중인 시스템에서 언마운트해야 합니다. 마운트 상태에서 Access Key를 변경하면 사용자 시스템에 문제가 생길 수 있습니다.
 
 <a id="change-nfs-permissions"></a>
 ### NFS 권한 변경 { #change-nfs-permissions }
@@ -202,7 +203,7 @@ Object Storage 유형의 게이트웨이는 POSIX API 일부만 지원합니다.
 read, write, readdir, truncate, fallocate, fsync
 ```
 
-> [주의]
-> rename, hardlink, symlink는 사용할 수 없습니다. 동작하지 않거나 Object Storage에 의도치 않은 오브젝트가 생성될 수 있습니다.
-> rsync, vi와 같은 임시 파일에 저장한 뒤 이름을 변경하는 도구는 사용하지 않는 것을 권장합니다.
+!!! tip "주의"
+    rename, hardlink, symlink는 사용할 수 없습니다. 동작하지 않거나 Object Storage에 의도치 않은 오브젝트가 생성될 수 있습니다.
+    rsync, vi와 같은 임시 파일에 저장한 뒤 이름을 변경하는 도구는 사용하지 않는 것을 권장합니다.
 
