@@ -1,12 +1,10 @@
-<!-- pre-align:aligned sig=109ab9c97015 -->
-
 <a id="storage-storage-gateway-overview"></a>
 ## Storage > Storage Gateway > 概要 { #storage-storage-gateway-overview }
 
 Storage Gatewayは、1つ以上のクラウドインスタンスまたはオンプレミス機器からNHN Cloudストレージを接続し、データを効率的に保存・管理できるサービスです。
 
-> [参考]
-> Storage Gatewayは、2025年3月現在、韓国(パンギョ)リージョンで提供されており、NHN Cloudストレージサービスのうち、Object Storageと接続できます。
+!!! tip "ヒント"
+    Storage Gateway は 2025 年 3 月時点で韓国 (板橋) リージョンで提供されており、NHN Cloud ストレージサービスのうち Object Storage と接続できます。
 
 <a id="characteristics"></a>
 ## 特徴 { #characteristics }
