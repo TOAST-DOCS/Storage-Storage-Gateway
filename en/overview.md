@@ -1,12 +1,10 @@
-<!-- pre-align:aligned sig=109ab9c97015 -->
-
 <a id="storage-storage-gateway-overview"></a>
 ## Storage > Storage Gateway > Overview { #storage-storage-gateway-overview }
 
 Storage Gateway allows you to connect NHN Cloud storage from one or more cloud instances or on-premises devices to efficiently store and manage data.
 
-> [Note]
-> Storage Gateway is available in the Korea (Pangyo) region as of March 2025 and can be connected to Object Storage among NHN Cloud storage services.
+!!! tip "Note"
+    Storage Gateway is available in the Korea (Pangyo) region as of March 2025 and can be connected to Object Storage among NHN Cloud storage services.
 
 <a id="characteristics"></a>
 ## Characteristics { #characteristics }
