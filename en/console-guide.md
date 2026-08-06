@@ -1,7 +1,8 @@
-<!-- pre-align:aligned sig=df549469ae0a -->
-
 <a id="storage-storage-gateway-console-user-guide"></a>
 ## Storage > Storage Gateway > Console User Guide { #storage-storage-gateway-console-user-guide }
+
+This document describes how to manage and connect gateways and shares in Storage Gateway from the NHN Cloud console.
+
 <a id="gateway"></a>
 ## Gateway { #gateway }
 <a id="create-gateway"></a>
@@ -12,8 +13,8 @@ Create a new storage gateway. The gateway is configured by creating an instance 
 #### Gateway Information
 Set the name, description, and type of storage to connect.
 
-> [Note]
-> As of March 2025, you can connect Object Storage.
+!!! tip "Note"
+    As of March 2025, you can connect Object Storage.
 
 <a id="create-gateway-cache-storage"></a>
 #### Cache Storage
@@ -41,8 +42,8 @@ Specify a security group to which the instance of the storage gateway belongs. T
 
 The remote destination IP can be set as a band in CIDR format. 
 
-> [Caution]
-> Setting the remote destination IP as a wide band, such as `0.0.0.0/0`, can lead to security vulnerabilities. Set it to a minimal range.
+!!! danger "Caution"
+    Setting the remote destination IP as a wide band, such as `0.0.0.0/0`, can lead to security vulnerabilities. Set it to a minimal range.
 
 For more information, see the [Security Groups User Guide](/Network/Security%20Groups/en/overview/).
 
@@ -59,15 +60,15 @@ Start a stopped storage gateway.
 ### Stop Gateway { #stop-gateway }
 Stop the storage gateway. When you stop the gateway, the instances that make up the cluster stop and can't connect to storage.
 
-> [Caution]
-> Before stopping the storage gateway, you must unmount the gateway from the system you are using by connecting the NHN Cloud storage. Stopping the gateway while it is mounted may cause problems on your system. 
+!!! danger "Caution"
+    Before stopping the storage gateway, you must unmount the gateway from the system you are using by connecting the NHN Cloud storage. Stopping the gateway while it is mounted may cause problems on your system.
 
 <a id="delete-gateway"></a>
 ### Delete Gateway { #delete-gateway }
 Delete the storage gateway. All instances and resources that make up the cluster are deleted. NHN Cloud storage that was connected to the gateway is not deleted. 
 
-> [Note]
-> To delete a gateway, you must first delete all shares you created on the gateway.
+!!! tip "Note"
+    To delete a gateway, you must first delete all shares you created on the gateway.
 
 <a id="share"></a>
 ## Share { #share }
@@ -79,24 +80,24 @@ Create a share. A share is a setup to connect NHN Cloud storage to. When you cre
 #### Share Information
 Set the share name and protocol to use for the path to the mount connection information.
 
-> [Note]
-> As of March 2025, the NFS protocol is available.
+!!! tip "Note"
+    As of March 2025, the NFS protocol is available.
 
 <a id="create-share-storage-information-for-connection"></a>
 #### Storage Information for Connection
 Set the information of storage to connect.
 Object Storage requires the name of the container to connect to and the Access Key from your S3 API credentials. The name of the container to connect to must follow Amazon S3's bucket naming conventions. S3 API credentials can be issued using the Object Storage console or API. For more information, see the [Create Bucket](/Storage/Object%20Storage/en/s3-api-guide/#bucket) section and the [S3 API Credentials](/Storage/Object%20Storage/en/s3-api-guide/#s3-api) section of **the Object Storage Amazon S3-compatible API guide**.
 
-> [Note]
-> When you create a share that connects Object Storage containers, the `{container name}+segments` container is automatically created in Object Storage. When you save a file that is larger than 25 MB through the gateway, it is uploaded as a multipart to the connected container, and the segment objects of the multipart object are stored in the `{containername}+segments` container. 
+!!! tip "Note"
+    When you create a share that connects Object Storage containers, the `{container name}+segments` container is automatically created in Object Storage. When you save a file that is larger than 25 MB through the gateway, it is uploaded as a multipart to the connected container, and the segment objects of the multipart object are stored in the `{containername}+segments` container.
 
 <!-- 개행을 위한 주석 -->
 
-> [Caution]
-> To set IP ACLs on containers in Object Storage that you want to connect to, you must add **read/write permissions** for Service Gateway.
-> The user who issues Object Storage's S3 API credentials needs **read/write** permissions on the container to connect to.
-> If you delete the container or delete the S3 API credentials while connecting to and using a container in Object Storage through a storage gateway, it can cause problems on your system. You should be careful not to delete them.
-> If you delete objects in the `{container name}+segments` container while connecting to and using a container in Object Storage through a storage gateway, you will not be able to access the files you have stored. Be careful not to delete them.
+!!! danger "Caution"
+    To set IP ACLs on containers in Object Storage that you want to connect to, you must add **read/write permissions** for Service Gateway.
+    The user who issues Object Storage's S3 API credentials needs **read/write** permissions on the container to connect to.
+    If you delete the container or delete the S3 API credentials while connecting to and using a container in Object Storage through a storage gateway, it can cause problems on your system. You should be careful not to delete them.
+    If you delete objects in the `{container name}+segments` container while connecting to and using a container in Object Storage through a storage gateway, you will not be able to access the files you have stored. Be careful not to delete them.
 
 <a id="create-share-nfs-permissions-settings"></a>
 #### NFS Permissions Settings
@@ -127,8 +128,8 @@ Set the memory cache validity time. The cache is retained for the set validity t
 ### Delete Share { #delete-share }
 Delete a share. 
 
-> [Caution]
-> Before deleting a share, you must mount the NHN Cloud storage and unmount it from your system. Deleting a share while it is mounted may cause problems on your system. 
+!!! danger "Caution"
+    Before deleting a share, you must mount the NHN Cloud storage and unmount it from your system. Deleting a share while it is mounted may cause problems on your system.
 
 <a id="immediately-empty-cache"></a>
 ### Immediately Empty Cache { #immediately-empty-cache }
@@ -138,8 +139,8 @@ Immediately deletes data stored in the disk cache area.
 ### Change Access Key { #change-access-key }
 Change the Access Key that you set when creating the share for the Object Storage type gateway.
 
-> [Caution]
-> Before you change the access key, you must mount your NHN Cloud storage and unmount it from your system. Changing the Access Key while mounted may cause problems on your system. 
+!!! danger "Caution"
+    Before you change the access key, you must mount your NHN Cloud storage and unmount it from your system. Changing the Access Key while mounted may cause problems on your system.
 
 <a id="change-nfs-permissions"></a>
 ### Change NFS Permissions { #change-nfs-permissions }
@@ -202,7 +203,7 @@ Gateways of type Object Storage support only a subset of the POSIX APIs.
 read, write, readdir, truncate, fallocate, fsync
 ```
 
-> [Caution]
-> Do not use rename, hardlink, or symlink; they may not work or may create unintended objects in Object Storage.
-> We do not recommend using tools that save to temporary files and then rename them, such as rsync and vi.
+!!! danger "Caution"
+    Do not use rename, hardlink, or symlink; they may not work or may create unintended objects in Object Storage.
+    We do not recommend using tools that save to temporary files and then rename them, such as rsync and vi.
 
