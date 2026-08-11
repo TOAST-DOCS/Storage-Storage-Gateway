@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=de02fda0b7df -->
+
 <a id="storage-storage-gateway-release-notes"></a>
 ## Storage > Storage Gateway > 릴리스 노트 { #storage-storage-gateway-release-notes }
 

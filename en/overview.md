@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=109ab9c97015 -->
+
 <a id="storage-storage-gateway-overview"></a>
 ## Storage > Storage Gateway > Overview { #storage-storage-gateway-overview }
 

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=df549469ae0a -->
+
 <a id="storage-storage-gateway-console-user-guide"></a>
 ## Storage > Storage Gateway > 콘솔 사용 가이드 { #storage-storage-gateway-console-user-guide }
 
