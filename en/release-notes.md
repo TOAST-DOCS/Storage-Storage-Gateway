@@ -6,11 +6,9 @@
 ## Storage > Storage Gateway > Release Notes { #storage-storage-gateway-release-notes }
 
 <a id="march-4-2025"></a>
-
 ## March 4, 2025 { #march-4-2025 }
 
 <a id="march-4-2025-new-service-launch"></a>
-
 ### New Service Launch { #march-4-2025-new-service-launch }
 
 * Storage Gateway service launch
