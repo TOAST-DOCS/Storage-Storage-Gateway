@@ -13,7 +13,6 @@ Storage Gatewayは、1つ以上のクラウドインスタンスまたはオン�
 <a id="characteristics"></a>
 ## 特徴 { #characteristics }
 <a id="sharable"></a>
-
 ### 共有性 { #sharable }
 NHN Cloud ストレージを 1 つ以上のインスタンスまたはオンプレミス機器にマウントして使用できます。
 サポートするプロトコルは NFS v3、v4 (Linux) です。
@@ -31,12 +30,10 @@ NHN Cloudストレージの優れた拡張性により、データ使用量に�
 冗長化構成により、障害が発生してもサービスを中断することなく使用できます。
 
 <a id="accessible"></a>
-
 ### アクセシビリティ { #accessible }
 ゲートウェイのVPCネットワークにFloating IPを接続するか、ネットワークゲートウェイ設定を使用して、さまざまな環境からNHN Cloudストレージにアクセスできます。
 
 <a id="secure"></a>
-
 ### セキュリティ性 { #secure }
 NHN Cloud ストレージのサーバー側の暗号化機能を使用して、データを安全に保管できます。
 
