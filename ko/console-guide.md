@@ -25,16 +25,16 @@
 <a id="create-gateway-network"></a>
 #### 네트워크
 스토리지 게이트웨이에 사용할 VPC와 서브넷을 선택합니다.
-게이트웨이를 구성하는 인스턴스에 선택한 VPC의 서브넷과 연결되는 네트워크 인터페이스가 만들어집니다. 네트워크 자원의 생성과 관리에 대한 자세한 내용은 [VPC 사용자 가이드](/Network/VPC/ko/overview/)를 참조하세요.
-서비스 게이트웨이는 Object Storage와 같이 사용자 VPC 외부의 스토리지를 인터넷 경유 없이 연결하기 위해 사용합니다. 서비스 게이트웨이에 대한 자세한 내용은 [Service Gateway 사용 가이드](/Network/Service%20Gateway/ko/overview/)를 참조하세요.
+게이트웨이를 구성하는 인스턴스에 선택한 VPC의 서브넷과 연결되는 네트워크 인터페이스가 만들어집니다. 네트워크 자원의 생성과 관리에 대한 자세한 내용은 [VPC 사용자 가이드](/Network/VPC/ko/overview/)를 참고하세요.
+서비스 게이트웨이는 Object Storage와 같이 사용자 VPC 외부의 스토리지를 인터넷 경유 없이 연결하기 위해 사용합니다. 서비스 게이트웨이에 대한 자세한 내용은 [Service Gateway 사용 가이드](/Network/Service%20Gateway/ko/overview/)를 참고하세요.
 
 <a id="create-gateway-floating-ip"></a>
 #### 플로팅 IP
-플로팅 IP 사용 여부를 설정합니다. 게이트웨이에 플로팅 IP를 사용하면 인터넷에서 게이트웨이에 접속할 수 있습니다. 자세한 내용은 [Floating IP 사용 가이드](/Network/Floating%20IP/ko/overview/)를 참조하세요.
+플로팅 IP 사용 여부를 설정합니다. 게이트웨이에 플로팅 IP를 사용하면 인터넷에서 게이트웨이에 접속할 수 있습니다. 자세한 내용은 [Floating IP 사용 가이드](/Network/Floating%20IP/ko/overview/)를 참고하세요.
 
 <a id="create-gateway-security-groups"></a>
 #### 보안 그룹
-스토리지 게이트웨이의 인스턴스가 속할 보안 그룹을 지정합니다. 선택한 VPC 네트워크 외부에서 게이트웨이를 통해 NHN Cloud 스토리지에 마운트하려면 보안 그룹에 다음과 같은 포트에 대한 규칙을 명시해야 합니다.
+스토리지 게이트웨이의 인스턴스가 속할 보안 그룹을 지정합니다. 선택한 VPC 네트워크 외부에서 게이트웨이로 NHN Cloud 스토리지에 마운트하려면 보안 그룹에 다음과 같은 포트 규칙을 명시해야 합니다.
 
 | 방향 | IP 프로토콜 | 포트 범위 | Ether | 원격 |
 | --- | --- | --- | --- | --- |
@@ -47,7 +47,7 @@
 !!! danger "주의"
     원격지 IP를 `0.0.0.0/0`과 같이 넓은 대역으로 설정하면 보안에 취약해질 수 있습니다. 최소한의 범위로 설정해 주세요.
 
-자세한 내용은 [Security Groups 사용 가이드](/Network/Security%20Groups/ko/overview/)를 참조하세요.
+자세한 내용은 [Security Groups 사용 가이드](/Network/Security%20Groups/ko/overview/)를 참고하세요.
 
 <a id="create-gateway-redundancy"></a>
 #### 이중화
@@ -88,7 +88,7 @@
 <a id="create-share-storage-information-for-connection"></a>
 #### 연결 스토리지 정보
 연결할 스토리지 정보를 설정합니다.
-Object Storage는 연결할 컨테이너 이름과 S3 API 자격 증명의 Access Key가 필요합니다. 연결할 컨테이너의 이름은 Amazon S3의 버킷 명명 규칙을 따라야 합니다. S3 API 자격 증명은 Object Storage 콘솔 또는 API를 사용해 발급할 수 있습니다. 자세한 내용은 **Object Storage Amazon S3 호환 API 가이드**의 [버킷 생성](/Storage/Object%20Storage/ko/s3-api-guide/#bucket) 섹션과 [S3 API 자격 증명](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api-credential) 섹션을 참조하세요.
+Object Storage는 연결할 컨테이너 이름과 S3 API 자격 증명의 Access Key가 필요합니다. 연결할 컨테이너의 이름은 Amazon S3의 버킷 명명 규칙을 따라야 합니다. S3 API 자격 증명은 Object Storage 콘솔 또는 API를 사용해 발급할 수 있습니다. 자세한 내용은 **Object Storage Amazon S3 호환 API 가이드**의 [버킷 생성](/Storage/Object%20Storage/ko/s3-api-guide/#bucket) 섹션과 [S3 API 자격 증명](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api-credential) 섹션을 참고하세요.
 
 !!! tip "알아두기"
     Object Storage 컨테이너를 연결하는 공유를 생성하면 Object Storage에 `{컨테이너명}+segments` 컨테이너가 자동으로 생성됩니다. 게이트웨이를 통해 25MB를 초과하는 파일을 저장하면 연결된 컨테이너에 멀티 파트로 업로드되며, 멀티 파트 오브젝트의 세그먼트 오브젝트가 `{컨테이너명}+segments` 컨테이너에 저장됩니다.
@@ -106,7 +106,7 @@ Object Storage는 연결할 컨테이너 이름과 S3 API 자격 증명의 Acces
 
 <a id="create-share-nfs-permissions-settings"></a>
 #### NFS 권한 설정
-NFS 프로토콜을 통해 연결할 클라이언트의 권한을 설정합니다.
+NFS 프로토콜로 연결할 클라이언트의 권한을 설정합니다.
 
 | Squash 옵션 | 설명 |
 | --- | --- |
@@ -114,7 +114,7 @@ NFS 프로토콜을 통해 연결할 클라이언트의 권한을 설정합니�
 | `root_squash` | 클라이언트의 root를 nobody 또는 지정한 UID/GID에 매핑합니다. |
 | `all_squash` | 클라이언트의 모든 사용자를 nobody 또는 지정한 UID/GID에 매핑합니다. |
 
-사용자 ID와 그룹 ID를 입력하지 않으면 Squash 옵션에 따라 **root(0)** 또는 **nobody(65534)**로 설정됩니다. 그 외의 사용자와 그룹에 매핑하려면 리눅스 사용자 ID와 그룹 ID를 입력합니다. 리눅스 사용자 ID와 그룹 ID는 리눅스 셸에서 `id` 명령으로 확인할 수 있습니다.
+사용자 ID와 그룹 ID를 입력하지 않으면 Squash 옵션에 따라 **root(0)** 또는 **nobody(65534)**로 설정됩니다. 그 외의 사용자와 그룹에 매핑하려면 Linux 사용자 ID와 그룹 ID를 입력합니다. Linux 사용자 ID와 그룹 ID는 Linux 셸에서 `id` 명령으로 확인할 수 있습니다.
 
 ```
 $ id

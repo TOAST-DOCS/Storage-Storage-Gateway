@@ -29,7 +29,7 @@ NHN Cloud 스토리지의 뛰어난 확장성을 통해 데이터 사용량에 �
 
 <a id="accessible"></a>
 ### 접근성 { #accessible }
-게이트웨이의 VPC 네트워크에 Floating IP를 연결하거나 네트워크 게이트웨이 설정을 통해 다양한 환경에서 NHN Cloud 스토리지에 접근할 수 있습니다.
+게이트웨이의 VPC 네트워크에 Floating IP를 연결하거나 네트워크 게이트웨이 설정을 사용하여 다양한 환경에서 NHN Cloud 스토리지에 접근할 수 있습니다.
 
 <a id="secure"></a>
 ### 보안성 { #secure }
