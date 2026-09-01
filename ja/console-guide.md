@@ -24,12 +24,12 @@
 <a id="create-gateway-network"></a>
 #### ネットワーク
 ストレージゲートウェイに使用するVPCとサブネットを選択します。
-ゲートウェイを構成するインスタンスに選択したVPCのサブネットと接続されるネットワークインターフェイスが作成されます。ネットワークリソースの作成と管理の詳細については[VPCユーザーガイド](/Network/VPC/ko/overview/)を参照してください。
-サービスゲートウェイはObject Storageのように、ユーザーVPC外部のストレージをインターネットを経由せずに接続するために使用します。サービスゲートウェイの詳細については[Service Gateway使用ガイド](/Network/Service%20Gateway/ko/overview/)を参照してください。
+ゲートウェイを構成するインスタンスに選択したVPCのサブネットと接続されるネットワークインターフェイスが作成されます。ネットワークリソースの作成と管理の詳細については[VPCユーザーガイド](/Network/VPC/ja/overview/)を参照してください。
+サービスゲートウェイはObject Storageのように、ユーザーVPC外部のストレージをインターネットを経由せずに接続するために使用します。サービスゲートウェイの詳細については[Service Gateway使用ガイド](/Network/Service%20Gateway/ja/overview/)を参照してください。
 
 <a id="create-gateway-floating-ip"></a>
 #### Floating IP
-Floating IPを使用するかどうかを設定します。ゲートウェイにFloating IPを使用すると、インターネットからゲートウェイに接続できます。詳細は、[Floating IP使用ガイド](/Network/Floating%20IP/ko/overview/)を参照してください。
+Floating IPを使用するかどうかを設定します。ゲートウェイにFloating IPを使用すると、インターネットからゲートウェイに接続できます。詳細は、[Floating IP使用ガイド](/Network/Floating%20IP/ja/overview/)を参照してください。
 
 <a id="create-gateway-security-groups"></a>
 #### セキュリティグループ
@@ -46,7 +46,7 @@ Floating IPを使用するかどうかを設定します。ゲートウェイに
 > [注意]
 > 遠隔地IPを`0.0.0.0/0`のような広い帯域に設定すると、セキュリティが脆弱になる可能性があります。最小限の範囲に設定してください。
 
-詳細は[Security Groups使用ガイド](/Network/Security%20Groups/ko/overview/)を参照してください。
+詳細は[Security Groups使用ガイド](/Network/Security%20Groups/ja/overview/)を参照してください。
 
 <a id="create-gateway-redundancy"></a>
 #### 冗長化
@@ -87,7 +87,7 @@ Floating IPを使用するかどうかを設定します。ゲートウェイに
 <a id="create-share-storage-information-for-connection"></a>
 #### 接続ストレージ情報
 接続するストレージ情報を設定します。
-Object Storageは接続するコンテナ名とS3 API認証情報のAccess Keyが必要です。接続するコンテナ名はAmazon S3のバケット命名規則に従わなければなりません。S3 API認証情報はObject StorageコンソールまたはAPIを使用して発行できます。詳細は**Object Storage Amazon S3互換APIガイド**の[バケット作成](/Storage/Object%20Storage/ko/s3-api-guide/#bucket)セクションと[S3 API認証情報](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api-credential)セクションを参照してください。
+Object Storageは接続するコンテナ名とS3 API認証情報のAccess Keyが必要です。接続するコンテナ名はAmazon S3のバケット命名規則に従わなければなりません。S3 API認証情報はObject StorageコンソールまたはAPIを使用して発行できます。詳細は**Object Storage Amazon S3互換APIガイド**の[バケット作成](/Storage/Object%20Storage/ja/s3-api-guide/#bucket)セクションと[S3 API認証情報](/Storage/Object%20Storage/ja/s3-api-guide/#s3-api-credential)セクションを参照してください。
 
 > [参考]
 > Object Storageコンテナを接続する共有を作成すると、Object Storageに`{コンテナ名}+segments`コンテナが自動的に作成されます。ゲートウェイを介して25MBを超えるファイルを保存すると、接続されたコンテナにマルチパートでアップロードされ、マルチパートオブジェクトのセグメントオブジェクトが`{コンテナ名}+segments`コンテナに保存されます。 
